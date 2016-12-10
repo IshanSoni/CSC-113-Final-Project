@@ -19,7 +19,7 @@ interface.geometry('{}x{}'.format(250, 250))
 about_string = "About: Python program that draws a \n pie chart of the n most frequent \n letters in \"Words.txt\" file"
 about = Label(interface, text =about_string)
 about.grid(row=0, column=0, padx=(25), pady=(10, 10))
-instruction = Label(interface, text ="Enter n below:\n(0 <= n <= max # of letters used)")
+instruction = Label(interface, text ="Enter n below:\n(0 <= n <= max # of characters used)")
 instruction.grid(row=1, column=0, padx=(25), pady=(10, 10))
 entry = Entry(interface, bd = 5)
 entry.grid(row=2, column=0, padx=(25), pady=(10, 10))
@@ -65,13 +65,15 @@ for line in word_list:  # goes through every line in the file
     for c in line:      # then goes through every character in the string line
       # if the character is a lower case or upper case alphabet,
       # the character is lower cased and its value is incremented
-      # in the dictionary 
+      # in the dictionary
+        if c == ' ' or c == '\n' or c == '\t': #Anything but space, newline, and tab
+            continue                           #will be counted up for occurences
         if c in acceptable_lower_chars or c in acceptable_upper_chars:
             c = c.lower()
-            if c in letter_counts:
-                letter_counts[c] += 1
-            else:
-                letter_counts[c] = 1
+        if c in letter_counts:
+            letter_counts[c] += 1
+        else:
+            letter_counts[c] = 1
 
 ''' sorts dictionary by letter occurences (high to low)
     converted into a 2d array, where 2dlist[i][0] is character
@@ -158,8 +160,7 @@ if n >= 1: #segment drawing for n = 1
             goto(0,0)
             end_fill()
     # drawing of "All other characters" segment
-    if n != 26: # if n is 26 that means all alphabets used
-                # and no more other character segment needed
+    if other_prob != 0:
         fillcolor('lightgrey')
         begin_fill()
         goto(position)
