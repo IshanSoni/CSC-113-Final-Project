@@ -1,5 +1,5 @@
 ''' Final Project
-    Ishan Soni, Gerry Xu
+    Ishan Soni
     Csc 113 - Afternoon section '''
 
 from tkinter import *
