@@ -1,7 +1,3 @@
-''' Final Project
-    Ishan Soni
-    Csc 113 - Afternoon section '''
-
 from tkinter import *
 from turtle import *
 
