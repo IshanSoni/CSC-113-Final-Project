@@ -36,7 +36,7 @@ def assign_n():
 
 button = Button(interface, text ="Draw pie chart", command = assign_n)
 button.grid(row=3, column=0, padx=(25), pady=(10, 10))
-created_by_string = "Created by: Ishan Soni, Gerry Xu"
+created_by_string = "Created by: Ishan Soni"
 credit = Label(interface, text =created_by_string)
 credit.grid(row=4, column=0, padx=(25), pady=(10, 10))
 interface.mainloop()
